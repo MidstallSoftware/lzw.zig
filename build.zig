@@ -7,6 +7,10 @@ pub fn build(b: *std.Build) void {
 
     const step_test = b.step("test", "Run all unit tests");
 
+    _ = b.addModule("lzw", .{
+        .source_file = .{ .path = b.pathFromRoot("lzw.zig") },
+    });
+
     const unit_tests = b.addTest(.{
         .root_source_file = .{
             .path = b.pathFromRoot("lzw.zig"),
